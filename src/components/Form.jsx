@@ -1,3 +1,5 @@
+import { IconSave } from "./Icons";
+
 export default (props) => (
   <form className="w-full  flex justify-center">
     <div className="flex flex-wrap mt-8 p-3">
@@ -52,8 +54,8 @@ export default (props) => (
 <div className="flex items-center justify-center w-full">
     
 <div className="">
-      <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-        Cadastrar
+      <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex">
+       <span className="mr-2">{IconSave}</span> Cadastrar
       </button>
     </div>
 </div>
