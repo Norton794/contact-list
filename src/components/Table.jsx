@@ -32,7 +32,7 @@ export default function Table(props) {
                   </div>
                 </td>
                 <td>
-                  <div className="text-red-500 cursor-pointer inline-block rounded hover:bg-gray-100 p-2">
+                  <div onClick={()=>props.del(contact._id)} className="text-red-500 cursor-pointer inline-block rounded hover:bg-gray-100 p-2">
                     {IconDelete}
                   </div>
                 </td>
