@@ -5,10 +5,12 @@ import { useState, useEffect } from "react";
 import { URL } from "../utils";
 import axios from "axios";
 export default function Home() {
+  const [id, setId] = useState(null);
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
   const [description, setDescription] = useState("");
   const [list, setList] = useState([]);
+ 
 
   const refresh = () => {
     axios
@@ -39,14 +41,37 @@ export default function Home() {
     axios
       .delete(`${URL}/${id}`)
       .then((resp) => refresh())
-      .catch((err) => console.error("Erro ao Salvar", err));
+      .catch((err) => console.error("Erro ao Remover", err));
+  }
+
+  function getForm({ _id, name, phone, description }) {
+    setId(_id);
+    setNome(name);
+    setTelefone(phone);
+    setDescription(description);
+  }
+
+  function setForm() {
+    if (!id || !nome || !telefone || !description) {
+      return;
+    }
+
+    axios
+      .put(`${URL}/${id}`, { name: nome, phone: telefone, description })
+      .then((resp) => refresh())
+      .catch((err) => console.error("Erro ao Editar", err));
+    setId(null);
+    setNome("");
+    setTelefone("");
+    setDescription("");
   }
 
   return (
     <div className={``}>
       <Navbar />
-      <Table list={list} del={removeContact} />
+      <Table list={list} del={removeContact} get={getForm} />
       <Form
+        id={id}
         nome={nome}
         telefone={telefone}
         description={description}
@@ -54,6 +79,7 @@ export default function Home() {
         changeNome={setNome}
         changeTelefone={setTelefone}
         changeDesc={setDescription}
+        set={setForm}
       />
     </div>
   );

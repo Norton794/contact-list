@@ -1,6 +1,6 @@
 import { IconSave } from "./Icons";
 
-export default ({nome, telefone, description, add, changeNome, changeTelefone, changeDesc}) => {
+export default ({id, nome, telefone, description, add, changeNome, changeTelefone, changeDesc, set}) => {
 
 
 
@@ -60,7 +60,7 @@ export default ({nome, telefone, description, add, changeNome, changeTelefone, c
         <div className="flex items-center justify-center w-full">
           <div className="">
             <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex"
-            onClick={add}
+            onClick={id ? set : add}
             >
               <span className="mr-2">{IconSave}</span> 
               Cadastrar

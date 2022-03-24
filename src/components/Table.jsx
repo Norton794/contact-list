@@ -27,7 +27,7 @@ export default function Table(props) {
                 <td>{contact.phone}</td>
                 <td>{contact.description}</td>
                 <td>
-                  <div className="text-yellow-500 cursor-pointer inline-block rounded hover:bg-gray-100 p-2">
+                  <div onClick={()=>props.get(contact)} className="text-yellow-500 cursor-pointer inline-block rounded hover:bg-gray-100 p-2">
                     {IconEdit}
                   </div>
                 </td>
