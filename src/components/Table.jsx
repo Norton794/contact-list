@@ -1,10 +1,9 @@
-import Header from "./Header";
 import { IconDelete, IconEdit } from "./Icons";
 
 export default function Table(props) {
   return (
     <div>
-      <Header text="Telefones: " />
+     
 
       <div className="w-full flex justify-center">
         <table className="w-full pl-1 m-8">

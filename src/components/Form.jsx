@@ -63,7 +63,7 @@ export default ({id, nome, telefone, description, add, changeNome, changeTelefon
             onClick={id ? set : add}
             >
               <span className="mr-2">{IconSave}</span> 
-              Cadastrar
+              {id?'Editar':'Cadastrar'}
             </button>
           </div>
         </div>
