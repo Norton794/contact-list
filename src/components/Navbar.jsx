@@ -13,7 +13,10 @@ export default function Navbar(props) {
         className={`container flex flex-wrap justify-between items-center mx-auto `}
       >
         <h1 className="text-lg font-semibold text-white uppercase font-sans flex justify-between">
-          <span className="pr-1">{IconList}</span> Agenda de Contatos
+          <span className="pr-1">{IconList}</span>
+          {props.erro
+            ? "Erro 404 "
+            : "Agenda de Contatos"}
         </h1>
         <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium">
           <li className={router.pathname == "/" ? active : ""}>
@@ -30,7 +33,6 @@ export default function Navbar(props) {
               </a>
             </Link>
           </li>
-          
         </ul>
       </div>
     </nav>
