@@ -82,7 +82,7 @@ export default function Home() {
     setDescription("");
   }
 
-  function searchText(text) {
+  function searchText(text = text) {
     
     refresh(text)
   }
@@ -90,6 +90,16 @@ export default function Home() {
   function erase(){
     refresh()
     setText("")
+  }
+
+
+  const keyHandler = e => {
+    console.log(e.key)
+    if(e.key==='Enter'){
+      searchText(e.target.value) 
+    }else if(e.key === 'Escape'){
+      erase()
+    }
   }
 
   return (
@@ -107,7 +117,7 @@ export default function Home() {
       {visible === "Table" ? (
         <>
         <div className="w-full flex justify-end mt-8 mb-0">
-        <input className="appearance-none block  bg-gray-200 text-gray-700 border rounded py-3 px-4  leading-tight focus:outline-none focus:bg-white h-10 m-2" type="text" value={text} onChange={e => setText(e.target.value)} placeholder="Pesquisa por Nome"/>
+        <input onKeyUp={keyHandler} className="appearance-none block  bg-gray-200 text-gray-700 border rounded py-3 px-4  leading-tight focus:outline-none focus:bg-white h-10 m-2" type="text" value={text} onChange={e => setText(e.target.value)} placeholder="Pesquisa por Nome"/>
         <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold p-2 m-2 rounded mr-2"
         onClick={() => searchText(text)}
         >

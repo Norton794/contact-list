@@ -4,7 +4,8 @@ export default function About() {
   return (
     <div>
       <Navbar />
-      <Header text="Sobre"/>
+      
+      <Header text="Sobre:"/>
       <div className="p-4 m-4">
         <h2 className="capitalize font-sans font-semibold mt-2 mb-2 text-lg text-gray-350">Sobre Nós:</h2>
         <p className="indent-8 text-gray-350">
